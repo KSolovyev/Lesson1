@@ -15,6 +15,14 @@ public class UserServlet extends HttpServlet {
 
     private UserHandler handler;
 
+
+    /**
+     * Получаем в качестве аргументов java-представления запроса и ответа.
+     * Из особенностей можно отметить только метод  HttpSession getSession() в {@link HttpServletRequest}
+     * Возвращает объект, который связан с текущим сеансом связи пользователя с сервером. Идентификация производится по куке JSESSIONID,
+     * которую автоматически вешает jetty. С помощью этого объекта можно сохранять данные между запросами (см. setAttribute())
+     *
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (handler == null) {
